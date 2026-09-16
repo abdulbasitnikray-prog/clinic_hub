@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -105,11 +105,11 @@ const AppContent: React.FC = () => {
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <LanguageProvider>
         <AppContent />
       </LanguageProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

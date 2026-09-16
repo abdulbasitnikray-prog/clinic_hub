@@ -4,5 +4,5 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Ensures relative asset paths work on GitHub Pages, Vercel, Netlify, and custom domains
+  base: '/Clinic_info/', // Exact repository base path for GitHub Pages deployment
 })
