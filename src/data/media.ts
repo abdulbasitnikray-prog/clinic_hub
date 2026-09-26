@@ -13,44 +13,72 @@ export interface MediaAsset {
 
 export const MEDIA_ASSETS = {
   hero: {
-    src: "/images/hero_clinic.jpg",
+    src: `${import.meta.env.BASE_URL}images/clinic-hero.jpeg`,
     alt: {
-      en: "Shahrwand Health Clinic Consultation Area in Kabul",
-      fa: "فضای معاینه و پذیرش کلینیک صحی شهروند در کابل"
+      en: "Sahar Wand Health Clinic and its medical services in Kabul",
+      fa: "کلینیک صحی شهروند و خدمات طبی آن در کابل"
     }
   },
-  doctorNurseTeam: {
-    src: "/images/doctor_nurse.jpg",
+  pediatricProfessionals: {
+    src: `${import.meta.env.BASE_URL}images/medical-team.jpeg`,
     alt: {
-      en: "Professional Doctor and Nurse Medical Team at Shahrwand Health Clinic",
-      fa: "تیم داکتران و نرس‌های مسلکی کلینیک صحی شهروند"
+      en: "Children learning about medical care at Sahar Wand Health Clinic",
+      fa: "کودکانی که با مراقبت‌های طبی در کلینیک صحی شهروند آشنا می‌شوند"
     }
   },
   nursingPatientCare: {
-    src: "/images/nursing_care.jpg",
+    src: `${import.meta.env.BASE_URL}images/clinic-interior.jpeg`,
     alt: {
-      en: "Compassionate Nursing and Clinical Consultation",
-      fa: "مراقبت‌های دلسوزانه نرسنگ و مشاوره‌های طبی"
+      en: "Sahar Wand Health Clinic reception and consultation area",
+      fa: "بخش پذیرش و مشاوره کلینیک صحی شهروند"
     }
   },
   endocrineCare: {
-    src: "/images/endocrine_care.jpg",
+    src: `${import.meta.env.BASE_URL}images/endocrine-care.jpeg`,
     alt: {
-      en: "Specialized Endocrine & Metabolic Care at Shahrwand Health Clinic",
+      en: "Specialized Endocrine & Metabolic Care at Sahar Wand Health Clinic",
       fa: "مراقبت‌های تخصصی اندوکراین و اختلالات هورمونی در کلینیک شهروند"
     }
   },
   patientCare: {
-    src: "/images/patient_care.jpg",
+    src: `${import.meta.env.BASE_URL}images/womens-health.jpeg`,
     alt: {
-      en: "Patient-Centered Medical Care Consultation Environment",
-      fa: "محیط محترمانه و بیمارمحور مشاوره طبی در کلینیک شهروند"
+      en: "Women's health and family care services at Sahar Wand Health Clinic",
+      fa: "خدمات صحت زنان و مراقبت خانواده در کلینیک صحی شهروند"
     }
   },
-  logoPlaceholder: {
-    src: "/images/logo.svg",
+  pediatricCare: {
+    src: `${import.meta.env.BASE_URL}images/pediatric-services.jpeg`,
     alt: {
-      en: "Shahrwand Health Clinic Logo",
+      en: "Children's health and pediatric clinic services",
+      fa: "صحت کودکان و خدمات کلینیک اطفال"
+    }
+  },
+  emergencyCare: {
+    src: `${import.meta.env.BASE_URL}images/pediatric-care.jpeg`,
+    alt: {
+      en: "Emergency care information for children and families",
+      fa: "معلومات مراقبت عاجل برای کودکان و خانواده‌ها"
+    }
+  },
+  clinicInterior: {
+    src: `${import.meta.env.BASE_URL}images/clinic-interior.jpeg`,
+    alt: {
+      en: "Sahar Wand Health Clinic reception and consultation area",
+      fa: "بخش پذیرش و مشاوره کلینیک صحی شهروند"
+    }
+  },
+  laboratoryServices: {
+    src: `${import.meta.env.BASE_URL}images/laboratory-services.jpeg`,
+    alt: {
+      en: "Laboratory testing services at Sahar Wand Health Clinic",
+      fa: "خدمات معاینات لابراتواری در کلینیک صحی شهروند"
+    }
+  },
+  logo: {
+    src: `${import.meta.env.BASE_URL}images/logo.png`,
+    alt: {
+      en: "Sahar Wand Health Clinic Logo",
       fa: "لوگوی کلینیک صحی شهروند"
     }
   }

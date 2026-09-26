@@ -18,11 +18,13 @@ export const TRANSLATIONS = {
   navFaq: { en: "FAQ", fa: "سوالات متداول" },
   navPrivacy: { en: "Privacy", fa: "محرمیت" },
   callNow: { en: "Call Now", fa: "تماس تلفنی" },
+  themeSwitchLight: { en: "Switch to light mode", fa: "تغییر به حالت روشن" },
+  themeSwitchDark: { en: "Switch to dark mode", fa: "تغییر به حالت تاریک" },
   callClinic: { en: "Call Clinic", fa: "تماس با کلینیک" },
   getDirections: { en: "Get Directions", fa: "دریافت مسیر" },
 
   // Hero Section
-  heroClinicName: { en: "SHARHWAND HEALTH CLINIC", fa: "کلینیک صحی شهروند" },
+  heroClinicName: { en: "SAHAR WAND HEALTH CLINIC", fa: "کلینیک صحی شهروند" },
   heroTagline: { en: "Professional • Compassionate • Patient-Centered", fa: "مسلکی • دلسوزانه • بیمارمحور" },
   heroHeadline: { en: "Your Health, Our Commitment", fa: "صحت شما، تعهد ما" },
   heroSubtext: {
@@ -49,6 +51,11 @@ export const TRANSLATIONS = {
     en: "Comprehensive primary medical care and clinical assessments for patients in Kabul.",
     fa: "ارائه خدمات جامع طبی اولیه و ارزیابی‌های بالینی برای مراجعین در کابل."
   },
+  serviceImagesTitle: { en: "Care for Every Stage of Life", fa: "مراقبت صحی در تمام مراحل زندگی" },
+  emergencyCare: { en: "Emergency Care", fa: "مراقبت عاجل" },
+  pediatricCare: { en: "Children's Healthcare", fa: "مراقبت صحی اطفال" },
+  pediatricTeam: { en: "Pediatric Care", fa: "مراقبت اطفال" },
+  laboratoryServices: { en: "Laboratory Services", fa: "خدمات لابراتوار" },
   learnMore: { en: "Learn More", fa: "اطلاعات بیشتر" },
 
   // Endocrine Care Page
@@ -81,9 +88,9 @@ export const TRANSLATIONS = {
   ],
 
   // About Us Page
-  aboutTitle: { en: "About Shahrwand Health Clinic", fa: "درباره کلینیک صحی شهروند" },
+  aboutTitle: { en: "About Sahar Wand Health Clinic", fa: "درباره کلینیک صحی شهروند" },
   aboutIntro: {
-    en: "Shahrwand Health Clinic is a patient-centered healthcare facility in Kabul, Afghanistan. The clinic is committed to providing professional, accessible, respectful and compassionate medical care.",
+    en: "Sahar Wand Health Clinic is a patient-centered healthcare facility in Kabul, Afghanistan. The clinic is committed to providing professional, accessible, respectful and compassionate medical care.",
     fa: "کلینیک صحی شهروند یک مرکز صحی بیمارمحور در کابل، افغانستان است. این کلینیک متعهد به ارائه خدمات صحی مسلکی، قابل دسترس، محترمانه و دلسوزانه میباشد."
   },
   aboutApproachTitle: { en: "Our approach emphasizes:", fa: "رویکرد ما بر موارد زیر تمرکز دارد:" },
@@ -162,12 +169,12 @@ export const TRANSLATIONS = {
   // Clinic Commitment
   commitmentTitle: { en: "Our Commitment", fa: "تعهد ما" },
   commitmentText: {
-    en: "Shahrwand Health Clinic is committed to improving the quality of healthcare through professional practice, responsible patient care, health education and continuous service improvement.",
+    en: "Sahar Wand Health Clinic is committed to improving the quality of healthcare through professional practice, responsible patient care, health education and continuous service improvement.",
     fa: "کلینیک صحی شهروند متعهد است تا از طریق فعالیت مسلکی، مراقبت مسئولانه از بیماران، آموزش صحی و بهبود دوامدار خدمات، کیفیت مراقبتهای صحی را ارتقا دهد."
   },
 
   // Contact Page
-  contactTitle: { en: "Contact Shahrwand Health Clinic", fa: "تماس با کلینیک صحی شهروند" },
+  contactTitle: { en: "Contact Sahar Wand Health Clinic", fa: "تماس با کلینیک صحی شهروند" },
   contactAddressLabel: { en: "Address", fa: "آدرس" },
   contactAddressValue: {
     en: "Hessa-ye-Dowom Khair Khana, Qala-e-Najara, beside Hazrat Ali (RA) Mosque, Kabul, Afghanistan",
@@ -195,11 +202,11 @@ export const TRANSLATIONS = {
   faqItems: [
     {
       q: {
-        en: "What services does Shahrwand Health Clinic provide?",
+        en: "What services does Sahar Wand Health Clinic provide?",
         fa: "کلینیک صحی شهروند چه خدماتی ارائه میکند؟"
       },
       a: {
-        en: "Shahrwand Health Clinic provides primary general internal medicine, specialized endocrine and hormonal care, diabetes management, thyroid care, pediatric internal care, gynecology consultations, orthopedics assessments, dermatology care, nutrition planning, and growth/stature evaluations.",
+        en: "Sahar Wand Health Clinic provides primary general internal medicine, specialized endocrine and hormonal care, diabetes management, thyroid care, pediatric internal care, gynecology consultations, orthopedics assessments, dermatology care, nutrition planning, and growth/stature evaluations.",
         fa: "کلینیک صحی شهروند خدمات طب داخله عمومی، مراقبت‌های تخصصی اندوکراین و هورمونی، مدیریت دیابت، تیروئید، داخله اطفال، مشاوره‌های نسایی ولادی، ارتوپیدی، جلدی و زیبایی، مدیریت وزن و ارزیابی رشد را ارائه می‌کند."
       }
     },
@@ -219,7 +226,7 @@ export const TRANSLATIONS = {
         fa: "چگونه با کلینیک تماس بگیرم؟"
       },
       a: {
-        en: "You can contact Shahrwand Health Clinic by phone at 0797955212 or 0786000230 during working days.",
+        en: "You can contact Sahar Wand Health Clinic by phone at 0797955212 or 0786000230 during working days.",
         fa: "شما می‌توانید در روزهای کاری از طریق شماره‌های تیلفون 0797955212 یا 0786000230 با کلینیک تماس بگیرید."
       }
     },
@@ -239,7 +246,7 @@ export const TRANSLATIONS = {
         fa: "آیا کلینیک خدمات اندوکراین ارائه میکند؟"
       },
       a: {
-        en: "Yes, Shahrwand Health Clinic provides clinical evaluation and follow-up care for endocrine and metabolic conditions including thyroid, diabetes, hormonal, growth, and weight conditions.",
+        en: "Yes, Sahar Wand Health Clinic provides clinical evaluation and follow-up care for endocrine and metabolic conditions including thyroid, diabetes, hormonal, growth, and weight conditions.",
         fa: "بله، کلینیک صحی شهروند خدمات ارزیابی بالینی و پیگیری برای اختلالات اندوکراین و متابولیک مانند تیروئید، دیابت، مشکلات هورمونی، رشد و وزن را ارائه می‌دهد."
       }
     },
@@ -258,20 +265,20 @@ export const TRANSLATIONS = {
   // Privacy Page
   privacyTitle: { en: "Privacy & Confidentiality", fa: "محرمیت و رازداری بیمار" },
   privacyText: {
-    en: "Shahrwand Health Clinic respects patient privacy, dignity, and confidentiality. This website is intended solely for general informational purposes about our healthcare location and services. We do not collect or store sensitive medical history through this website.",
+    en: "Sahar Wand Health Clinic respects patient privacy, dignity, and confidentiality. This website is intended solely for general informational purposes about our healthcare location and services. We do not collect or store sensitive medical history through this website.",
     fa: "کلینیک صحی شهروند به محرمیت، کرامت و رازداری بیماران احترام کامل می‌گذارد. این وبسایت صرفاً برای ارائه معلومات عمومی درباره موقعیت و خدمات کلینیک است و هیچ‌گونه سوابق حساس طبی را از طریق وبسایت ذخیره نمی‌کند."
   },
 
   // Medical Disclaimer
   disclaimerTitle: { en: "Medical Disclaimer", fa: "یادداشت طبی" },
   disclaimerText: {
-    en: "This website provides general information about Shahrwand Health Clinic and its services. It is not a substitute for professional medical diagnosis or treatment.",
+    en: "This website provides general information about Sahar Wand Health Clinic and its services. It is not a substitute for professional medical diagnosis or treatment.",
     fa: "این وبسایت معلومات عمومی درباره کلینیک صحی شهروند و خدمات آن ارائه میکند. این معلومات جایگزین تشخیص یا تداوی مسلکی طبی نمیباشد."
   },
 
   // Footer
   footerCopyright: {
-    en: "© Shahrwand Health Clinic. All rights reserved.",
+    en: "© Sahar Wand Health Clinic. All rights reserved.",
     fa: "© کلینیک صحی شهروند. تمامی حقوق محفوظ است."
   },
 

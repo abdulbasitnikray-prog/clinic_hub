@@ -4,7 +4,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MedicalDisclaimer } from './MedicalDisclaimer';
 import { CLINIC_INFO } from '../data/clinic';
-import { HeartPulse, MapPin, PhoneCall, Calendar, Navigation } from 'lucide-react';
+import { MEDIA_ASSETS } from '../data/media';
+import { MapPin, PhoneCall, Calendar, Navigation } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -29,9 +30,13 @@ export const Footer: React.FC = () => {
           {/* Column 1: Clinic Branding & Mission */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-clinic-teal to-emerald-500 text-white flex items-center justify-center font-extrabold text-xl shadow-lg">
-                <HeartPulse className="w-6 h-6 text-white" />
-              </div>
+              <span className="clinic-logo-frame w-[76px] h-12 p-1.5 rounded-md border border-slate-700/70 flex items-center justify-center">
+                <img
+                  src={MEDIA_ASSETS.logo.src}
+                  alt={MEDIA_ASSETS.logo.alt[language]}
+                  className="w-full h-full object-contain"
+                />
+              </span>
               <div>
                 <h3 className="font-extrabold text-lg text-white tracking-tight">
                   {CLINIC_INFO.name[language]}

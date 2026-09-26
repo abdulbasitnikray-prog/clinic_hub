@@ -25,7 +25,7 @@ export const PatientCarePage: React.FC = () => {
           fa: "مراقبت بیمارمحور - احترام و محرمیت"
         }}
         description={{
-          en: "Shahrwand Health Clinic emphasizes patient dignity, confidentiality, clear communication, and respectful medical care in Kabul, Afghanistan.",
+          en: "Sahar Wand Health Clinic emphasizes patient dignity, confidentiality, clear communication, and respectful medical care in Kabul, Afghanistan.",
           fa: "تأکید کلینیک صحی شهروند بر کرامت بیمار، محرمیت، ارتباط واضح و مراقبت‌های محترمانه طبی در کابل."
         }}
       />
@@ -53,7 +53,7 @@ export const PatientCarePage: React.FC = () => {
               <ImageWithFallback
                 src={MEDIA_ASSETS.patientCare.src}
                 alt={MEDIA_ASSETS.patientCare.alt[language]}
-                className="w-full h-[340px] object-cover"
+                className="clinic-content-image"
               />
             </div>
           </div>
@@ -65,7 +65,7 @@ export const PatientCarePage: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               {language === 'fa'
                 ? 'در کلینیک صحی شهروند، ما بر این باوریم که ارائه خدمات صحی عالی تنها شامل تداوی طبی نمی‌باشد، بلکه ایجاد ارتباط محترمانه، حفظ محرمیت و فراهم کردن فضای آرام برای بیمار از اولویت‌های حیاتی است.'
-                : 'At Shahrwand Health Clinic, we believe that high-quality healthcare extends beyond diagnosis and treatment to foster a warm, confidential, and deeply respectful environment for every patient.'}
+                : 'At Sahar Wand Health Clinic, we believe that high-quality healthcare extends beyond diagnosis and treatment to foster a warm, confidential, and deeply respectful environment for every patient.'}
             </p>
           </div>
         </div>

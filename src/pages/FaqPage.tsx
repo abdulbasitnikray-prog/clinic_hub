@@ -20,7 +20,7 @@ export const FaqPage: React.FC = () => {
           fa: "سوالات متداول - کلینیک شهروند"
         }}
         description={{
-          en: "Frequently asked questions about Shahrwand Health Clinic in Kabul regarding services, location, phone contact, and endocrine care.",
+          en: "Frequently asked questions about Sahar Wand Health Clinic in Kabul regarding services, location, phone contact, and endocrine care.",
           fa: "سوالات متداول درباره خدمات کلینیک صحی شهروند، موقعیت در کابل، شماره‌های تماس و مراقبت‌های تیروئید و دیابت."
         }}
       />

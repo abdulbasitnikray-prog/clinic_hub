@@ -2,20 +2,26 @@
 <html lang="fa-AF" dir="rtl" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('shahrwand_theme') === 'light' ? 'light' : 'dark';
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+    <link rel="icon" type="image/png" href="%BASE_URL%images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     
     <!-- Primary Meta Tags -->
-    <title>کلینیک صحی شهروند | Shahrwand Health Clinic - Kabul, Afghanistan</title>
-    <meta name="title" content="کلینیک صحی شهروند | Shahrwand Health Clinic - Kabul, Afghanistan" />
+    <title>کلینیک صحی شهروند | Sahar Wand Health Clinic - Kabul, Afghanistan</title>
+    <meta name="title" content="کلینیک صحی شهروند | Sahar Wand Health Clinic - Kabul, Afghanistan" />
     <meta name="description" content="خدمات صحی مسلکی، قابل دسترس و دلسوزانه در کابل، افغانستان. مراقبت‌های تخصصی اندوکراین، طب داخله، دیابت و تیروئید. Professional, accessible & compassionate healthcare in Kabul." />
-    <meta name="keywords" content="کلینیک صحی شهروند, Shahrwand Health Clinic, کابل افغانستان, خیرخانه کابل, کلینیک اندوکراین کابل, دیابت کابل, تیروئید کابل" />
+    <meta name="keywords" content="کلینیک صحی شهروند, Sahar Wand Health Clinic, کابل افغانستان, خیرخانه کابل, کلینیک اندوکراین کابل, دیابت کابل, تیروئید کابل" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="کلینیک صحی شهروند | Shahrwand Health Clinic" />
+    <meta property="og:title" content="کلینیک صحی شهروند | Sahar Wand Health Clinic" />
     <meta property="og:description" content="خدمات صحی مسلکی، قابل دسترس و دلسوزانه در خیرخانه کابل. Professional and compassionate healthcare in Kabul, Afghanistan." />
-    <meta property="og:image" content="/images/hero_clinic.jpg" />
 
     <!-- Google Fonts: Vazirmatn (Dari/Persian) & Plus Jakarta Sans (English) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +33,7 @@
     {
       "@context": "https://schema.org",
       "@type": "MedicalClinic",
-      "name": "Shahrwand Health Clinic",
+      "name": "Sahar Wand Health Clinic",
       "alternateName": "کلینیک صحی شهروند",
       "description": "Professional, accessible and compassionate healthcare clinic focused on patient-centered care in Kabul, Afghanistan.",
       "url": "https://shahrwandhealth.af",

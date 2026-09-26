@@ -32,7 +32,7 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
       alt={alt}
       loading="lazy"
       onError={() => setError(true)}
-      className={`object-cover transition-opacity duration-300 ${className}`}
+      className={`block transition-opacity duration-300 ${className}`}
       {...props}
     />
   );

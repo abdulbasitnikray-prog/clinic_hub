@@ -18,7 +18,7 @@ export const EndocrineCarePage: React.FC = () => {
           fa: "مراقبت‌های تخصصی اندوکراین - تیروئید و دیابت"
         }}
         description={{
-          en: "Specialized endocrine and metabolic evaluations at Shahrwand Health Clinic in Kabul including thyroid, diabetes, hormonal, growth and weight care.",
+          en: "Specialized endocrine and metabolic evaluations at Sahar Wand Health Clinic in Kabul including thyroid, diabetes, hormonal, growth and weight care.",
           fa: "خدمات ارزیابی تخصصی غدد درون‌ریز و متابولیک در کلینیک صحی شهروند کابل شامل بیماری‌های تیروئید، دیابت، اختلالات هورمونی و رشد."
         }}
       />
@@ -70,7 +70,7 @@ export const EndocrineCarePage: React.FC = () => {
               <ImageWithFallback
                 src={MEDIA_ASSETS.endocrineCare.src}
                 alt={MEDIA_ASSETS.endocrineCare.alt[language]}
-                className="w-full h-[300px] object-cover"
+                className="clinic-content-image"
               />
             </div>
 

@@ -2,8 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTheme } from '../context/ThemeContext';
 import { CLINIC_INFO } from '../data/clinic';
-import { X, PhoneCall, MapPin, Clock } from 'lucide-react';
+import { MEDIA_ASSETS } from '../data/media';
+import { X, PhoneCall, MapPin, Clock, Moon, Sun } from 'lucide-react';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -12,6 +14,7 @@ interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const { t, language } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   if (!isOpen) return null;
 
@@ -33,9 +36,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {/* Top Header inside Menu */}
       <div className="flex items-center justify-between p-4 border-b border-slate-800">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-clinic-teal text-white flex items-center justify-center font-bold text-lg">
-            ش
-          </div>
+          <span className="clinic-logo-frame w-16 h-10 p-1 rounded-md border border-slate-700/70 flex items-center justify-center">
+            <img
+              src={MEDIA_ASSETS.logo.src}
+              alt={MEDIA_ASSETS.logo.alt[language]}
+              className="w-full h-full object-contain"
+            />
+          </span>
           <span className="font-bold text-sm text-white">{CLINIC_INFO.name[language]}</span>
         </div>
         <button
@@ -51,10 +58,21 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       {/* Navigation Links */}
       <div className="flex-1 overflow-y-auto px-5 py-6 space-y-2">
         <div className="mb-4 pb-3 border-b border-slate-800 flex items-center justify-between">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-            {language === 'fa' ? 'انتخاب زبان' : 'Language'}
-          </span>
-          <LanguageSwitcher />
+          <div className="flex flex-col gap-3">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+              {language === 'fa' ? 'انتخاب زبان' : 'Language'}
+            </span>
+            <LanguageSwitcher />
+          </div>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="theme-toggle p-2 rounded-xl border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+            aria-label={theme === 'dark' ? t('themeSwitchLight') : t('themeSwitchDark')}
+            title={theme === 'dark' ? t('themeSwitchLight') : t('themeSwitchDark')}
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
         </div>
 
         {navLinks.map((link) => (

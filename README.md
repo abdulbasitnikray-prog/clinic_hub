@@ -31,4 +31,8 @@ If you are developing a production application, we recommend enabling type-aware
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
 
-GitHub Pages deployment configured.
+## Deployment
+
+The GitHub Pages workflow builds with `GITHUB_PAGES=true`, which sets the `/clinic_hub/` base path for this repository. Other deployments, including Vercel, build without that variable and use the domain root.
+
+The light/dark theme preference is saved in the browser and defaults to dark mode.

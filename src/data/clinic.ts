@@ -25,7 +25,7 @@ export interface ClinicInfo {
 
 export const CLINIC_INFO: ClinicInfo = {
   name: {
-    en: "SHARHWAND HEALTH CLINIC",
+    en: "SAHAR WAND HEALTH CLINIC",
     fa: "کلینیک صحی شهروند"
   },
   tagline: {

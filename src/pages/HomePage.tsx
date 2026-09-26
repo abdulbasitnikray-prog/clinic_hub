@@ -66,7 +66,7 @@ export const HomePage: React.FC = () => {
           fa: "صفحه اصلی - خدمات صحی مسلکی در کابل"
         }}
         description={{
-          en: "Shahrwand Health Clinic in Kabul, Afghanistan. Professional, accessible and compassionate healthcare focused on your individual needs. Call 0797955212.",
+          en: "Sahar Wand Health Clinic in Kabul, Afghanistan. Professional, accessible and compassionate healthcare focused on your individual needs. Call 0797955212.",
           fa: "کلینیک صحی شهروند در کابل، افغانستان. ارائه خدمات صحی مسلکی، قابل دسترس و دلسوزانه با تمرکز بر نیازهای فردی هر بیمار. شماره تماس: 0797955212."
         }}
       />
@@ -130,24 +130,14 @@ export const HomePage: React.FC = () => {
 
             </div>
 
-            {/* Hero Image Component (Doctor & Nurse Team) */}
+            {/* Hero Image Component */}
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-700/80 bg-[#0A1628] group">
                 <ImageWithFallback
-                  src={MEDIA_ASSETS.doctorNurseTeam.src}
-                  alt={MEDIA_ASSETS.doctorNurseTeam.alt[language]}
-                  className="w-full h-[360px] sm:h-[430px] object-cover group-hover:scale-105 transition-transform duration-700 opacity-95"
+                  src={MEDIA_ASSETS.hero.src}
+                  alt={MEDIA_ASSETS.hero.alt[language]}
+                  className="clinic-content-image clinic-content-image--hero"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070F1E] via-transparent to-transparent flex items-end p-6 text-white">
-                  <div className="bg-[#070F1E]/80 backdrop-blur-md p-4 rounded-2xl border border-slate-700/80 w-full">
-                    <span className="text-xs font-semibold text-clinic-tealGlow block mb-1">
-                      {CLINIC_INFO.name[language]}
-                    </span>
-                    <p className="text-sm font-bold leading-tight text-white">
-                      {language === 'fa' ? 'تیم مسلکی داکتران و نرس‌های کلینیک' : 'Professional Doctors & Nursing Medical Team'}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -195,7 +185,7 @@ export const HomePage: React.FC = () => {
                 <ImageWithFallback
                   src={MEDIA_ASSETS.nursingPatientCare.src}
                   alt={MEDIA_ASSETS.nursingPatientCare.alt[language]}
-                  className="w-full h-[320px] object-cover"
+                  className="clinic-content-image"
                 />
               </div>
             </div>
@@ -213,7 +203,7 @@ export const HomePage: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {language === 'fa'
                   ? 'کلینیک صحی شهروند با بهره‌گیری از کادر مسلکی طبی، داکتران با تجربه و نرس‌های دلسوز، خدمات معاینه، تشخیص و پیگیری درمان را در محیطی محترمانه و مصئون ارائه می‌نماید.'
-                  : 'Shahrwand Health Clinic brings together experienced doctors and compassionate nursing staff dedicated to patient-centered clinical evaluations, accurate diagnosis, and ongoing follow-up care in Kabul.'}
+                  : 'Sahar Wand Health Clinic brings together experienced doctors and compassionate nursing staff dedicated to patient-centered clinical evaluations, accurate diagnosis, and ongoing follow-up care in Kabul.'}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -318,7 +308,7 @@ export const HomePage: React.FC = () => {
                 <ImageWithFallback
                   src={MEDIA_ASSETS.endocrineCare.src}
                   alt={MEDIA_ASSETS.endocrineCare.alt[language]}
-                  className="w-full h-[320px] object-cover"
+                  className="clinic-content-image"
                 />
               </div>
             </div>
@@ -337,7 +327,7 @@ export const HomePage: React.FC = () => {
                 <ImageWithFallback
                   src={MEDIA_ASSETS.patientCare.src}
                   alt={MEDIA_ASSETS.patientCare.alt[language]}
-                  className="w-full h-[300px] object-cover"
+                  className="clinic-content-image"
                 />
               </div>
             </div>

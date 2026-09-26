@@ -20,7 +20,7 @@ export const ContactPage: React.FC = () => {
           fa: "تماس و موقعیت کلینیک - کابل خیرخانه"
         }}
         description={{
-          en: "Contact Shahrwand Health Clinic in Khair Khana, Kabul. Phone: 0797955212 / 0786000230. Working days: Saturday to Thursday.",
+          en: "Contact Sahar Wand Health Clinic in Khair Khana, Kabul. Phone: 0797955212 / 0786000230. Working days: Saturday to Thursday.",
           fa: "تماس با کلینیک صحی شهروند در حصه دوم خیرخانه کابل. شماره‌های تماس: 0797955212 و 0786000230. روزهای کاری: شنبه تا پنجشنبه."
         }}
       />

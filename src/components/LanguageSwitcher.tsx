@@ -23,15 +23,16 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
   };
 
   return (
-    <div className={`inline-flex items-center bg-slate-800/90 p-1 rounded-full border border-slate-700/80 shadow-inner ${className}`}>
+    <div className={`language-switcher inline-flex items-center bg-slate-800/90 p-1 rounded-full border border-slate-700/80 shadow-inner ${className}`}>
       <button
         type="button"
         onClick={() => switchLanguage('fa')}
         className={`px-3 py-1 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 ${
           language === 'fa'
-            ? 'bg-clinic-teal text-white shadow-md'
+            ? 'language-switcher__option language-switcher__option--active bg-clinic-teal text-white shadow-md'
             : 'text-slate-300 hover:text-white'
         }`}
+        aria-pressed={language === 'fa'}
         aria-label="سوئیچ به زبان دری"
       >
         دری
@@ -42,9 +43,10 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
         onClick={() => switchLanguage('en')}
         className={`px-3 py-1 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 ${
           language === 'en'
-            ? 'bg-clinic-teal text-white shadow-md'
+            ? 'language-switcher__option language-switcher__option--active bg-clinic-teal text-white shadow-md'
             : 'text-slate-300 hover:text-white'
         }`}
+        aria-pressed={language === 'en'}
         aria-label="Switch to English"
       >
         English

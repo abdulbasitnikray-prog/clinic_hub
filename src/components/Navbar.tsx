@@ -4,10 +4,13 @@ import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileMenu } from './MobileMenu';
 import { CLINIC_INFO } from '../data/clinic';
-import { PhoneCall, Menu, HeartPulse } from 'lucide-react';
+import { MEDIA_ASSETS } from '../data/media';
+import { useTheme } from '../context/ThemeContext';
+import { PhoneCall, Menu, Moon, Sun } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { t, language } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,6 +23,19 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const prefix = `/${language}`;
+  const themeLabel = theme === 'dark' ? t('themeSwitchLight') : t('themeSwitchDark');
+
+  const themeToggle = (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="theme-toggle p-2 rounded-xl border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+      aria-label={themeLabel}
+      title={themeLabel}
+    >
+      {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+    </button>
+  );
 
   const navLinks = [
     { path: prefix, label: t('navHome'), exact: true },
@@ -39,9 +55,13 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Clinic Logo & Title */}
             <Link to={prefix} className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-clinic-teal to-emerald-500 flex items-center justify-center text-white shadow-md shadow-clinic-teal/20 group-hover:scale-105 transition-transform">
-                <HeartPulse className="w-6 h-6 text-white" />
-              </div>
+              <span className="clinic-logo-frame w-[76px] h-12 p-1.5 rounded-md border border-slate-700/70 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <img
+                  src={MEDIA_ASSETS.logo.src}
+                  alt={MEDIA_ASSETS.logo.alt[language]}
+                  className="w-full h-full object-contain"
+                />
+              </span>
               <div className="flex flex-col">
                 <span className="font-extrabold text-base sm:text-lg text-white tracking-tight leading-tight group-hover:text-clinic-tealGlow transition-colors">
                   {CLINIC_INFO.name[language]}
@@ -74,6 +94,7 @@ export const Navbar: React.FC = () => {
 
             {/* Language Switcher & Call CTA */}
             <div className="hidden md:flex items-center gap-3">
+              {themeToggle}
               <LanguageSwitcher />
 
               <a
@@ -88,6 +109,7 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Actions: Language Switcher + Hamburger */}
             <div className="flex md:hidden items-center gap-2">
+              {themeToggle}
               <LanguageSwitcher />
               <button
                 type="button"

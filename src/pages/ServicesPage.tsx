@@ -3,6 +3,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { MEDICAL_SERVICES } from '../data/services';
 import type { MedicalService } from '../data/services';
 import { CLINIC_INFO } from '../data/clinic';
+import { MEDIA_ASSETS } from '../data/media';
+import { ImageWithFallback } from '../components/ImageWithFallback';
 import { SeoMeta } from '../components/SeoMeta';
 import { 
   Activity, 
@@ -41,7 +43,7 @@ export const ServicesPage: React.FC = () => {
           fa: "خدمات صحی و تخصصی"
         }}
         description={{
-          en: "Explore the 10 medical services at Shahrwand Health Clinic in Kabul, Afghanistan including Endocrinology, Internal Medicine, Diabetes, Thyroid, and Pediatrics.",
+          en: "Explore the 10 medical services at Sahar Wand Health Clinic in Kabul, Afghanistan including Endocrinology, Internal Medicine, Diabetes, Thyroid, and Pediatrics.",
           fa: "مشاهده ۱۰ خدمت صحی و تخصصی کلینیک صحی شهروند در کابل از جمله اندوکراین، طب داخله، دیابت، تیروئید و اطفال."
         }}
       />
@@ -135,6 +137,31 @@ export const ServicesPage: React.FC = () => {
             </p>
           </div>
         )}
+
+        <section aria-labelledby="service-images-title" className="space-y-6">
+          <h2 id="service-images-title" className="text-2xl font-extrabold text-white">
+            {t('serviceImagesTitle')}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+            {[
+              { asset: MEDIA_ASSETS.emergencyCare, title: t('emergencyCare') },
+              { asset: MEDIA_ASSETS.pediatricProfessionals, title: t('pediatricTeam') },
+              { asset: MEDIA_ASSETS.pediatricCare, title: t('pediatricCare') },
+              { asset: MEDIA_ASSETS.laboratoryServices, title: t('laboratoryServices') },
+            ].map(({ asset, title }) => (
+              <figure key={asset.src} className="overflow-hidden rounded-2xl border border-slate-800 bg-[#0F223D] shadow-lg">
+                <ImageWithFallback
+                  src={asset.src}
+                  alt={asset.alt[language]}
+                  className="clinic-content-image"
+                />
+                <figcaption className="p-4 text-center text-sm font-bold text-white">
+                  {title}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
 
         {/* Appointment Call Banner */}
         <div className="bg-[#070F1E] border border-slate-800 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">

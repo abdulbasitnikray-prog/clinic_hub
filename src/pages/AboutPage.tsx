@@ -37,11 +37,11 @@ export const AboutPage: React.FC = () => {
     <>
       <SeoMeta
         title={{
-          en: "About Shahrwand Health Clinic - Medical Team & Values",
+          en: "About Sahar Wand Health Clinic - Medical Team & Values",
           fa: "درباره کلینیک صحی شهروند - تیم طبی و ارزش‌ها"
         }}
         description={{
-          en: "Learn about Shahrwand Health Clinic in Kabul, Afghanistan. Patient-centered medical team, mission, vision, and core clinical values.",
+          en: "Learn about Sahar Wand Health Clinic in Kabul, Afghanistan. Patient-centered medical team, mission, vision, and core clinical values.",
           fa: "معرفی کلینیک صحی شهروند در کابل، افغانستان. تیم داکتران و نرس‌های مسلکی، مأموریت، دیدگاه و ارزش‌های بنیادی طبی."
         }}
       />
@@ -77,7 +77,7 @@ export const AboutPage: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {language === 'fa'
                   ? 'کادر طبی کلینیک صحی شهروند متعهد به ارائه ارزیابی‌های دقیق طبی، مشاوره‌های دلسوزانه و مراقبت‌های مداوم نرسنگ برای بیماران در کابل می‌باشد.'
-                  : 'The clinical team at Shahrwand Health Clinic is dedicated to delivering thorough medical consultations, empathetic nursing care, and continuous patient follow-up in Kabul.'}
+                  : 'The clinical team at Sahar Wand Health Clinic is dedicated to delivering thorough medical consultations, empathetic nursing care, and continuous patient follow-up in Kabul.'}
               </p>
 
               <div className="pt-2 flex items-center gap-4 text-xs font-semibold text-clinic-tealGlow">
@@ -95,9 +95,9 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-6">
               <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80">
                 <ImageWithFallback
-                  src={MEDIA_ASSETS.doctorNurseTeam.src}
-                  alt={MEDIA_ASSETS.doctorNurseTeam.alt[language]}
-                  className="w-full h-[300px] object-cover"
+                  src={MEDIA_ASSETS.clinicInterior.src}
+                  alt={MEDIA_ASSETS.clinicInterior.alt[language]}
+                  className="clinic-content-image"
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ export const AboutPage: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
               {language === 'fa' 
                 ? 'اصول اخلاقی و بالینی که پایه و اساس تمامی فعالیت‌های کلینیک صحی شهروند را تشکیل می‌دهند.'
-                : 'Ethical and clinical principles guiding every aspect of patient care at Shahrwand Health Clinic.'}
+                : 'Ethical and clinical principles guiding every aspect of patient care at Sahar Wand Health Clinic.'}
             </p>
           </div>
 

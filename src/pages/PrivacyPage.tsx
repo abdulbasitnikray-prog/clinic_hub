@@ -16,7 +16,7 @@ export const PrivacyPage: React.FC = () => {
           fa: "محرمیت و رازداری بیمار - کلینیک شهروند"
         }}
         description={{
-          en: "Privacy statement regarding patient dignity and clinical record confidentiality at Shahrwand Health Clinic in Kabul.",
+          en: "Privacy statement regarding patient dignity and clinical record confidentiality at Sahar Wand Health Clinic in Kabul.",
           fa: "بیانیه محرمیت و رازداری سوابق طبی بیماران در کلینیک صحی شهروند کابل."
         }}
       />
