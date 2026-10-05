@@ -20,10 +20,10 @@ export const MEDIA_ASSETS = {
     }
   },
   pediatricProfessionals: {
-    src: `${import.meta.env.BASE_URL}images/medical-team.jpeg`,
+    src: `${import.meta.env.BASE_URL}images/pediatric-care.jpeg`,
     alt: {
-      en: "Children learning about medical care at Sahar Wand Health Clinic",
-      fa: "کودکانی که با مراقبت‌های طبی در کلینیک صحی شهروند آشنا می‌شوند"
+      en: "Two children dressed as healthcare professionals",
+      fa: "دو کودک با لباس کارکنان صحی"
     }
   },
   nursingPatientCare: {
@@ -48,17 +48,17 @@ export const MEDIA_ASSETS = {
     }
   },
   pediatricCare: {
-    src: `${import.meta.env.BASE_URL}images/pediatric-services.jpeg`,
+    src: `${import.meta.env.BASE_URL}images/pediatric-clinic.jpeg`,
     alt: {
       en: "Children's health and pediatric clinic services",
       fa: "صحت کودکان و خدمات کلینیک اطفال"
     }
   },
   emergencyCare: {
-    src: `${import.meta.env.BASE_URL}images/pediatric-care.jpeg`,
+    src: `${import.meta.env.BASE_URL}images/emergency-care.jpeg`,
     alt: {
-      en: "Emergency care information for children and families",
-      fa: "معلومات مراقبت عاجل برای کودکان و خانواده‌ها"
+      en: "Emergency care clinic signage and a child in the waiting area",
+      fa: "تابلوی بخش مراقبت عاجل و یک کودک در اتاق انتظار"
     }
   },
   clinicInterior: {

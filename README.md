@@ -46,10 +46,10 @@ Original image files are retained in `img/`. The named files used by the app are
 | `clinic-interior.jpeg` | Homepage nursing/care section and About page |
 | `endocrine-care.jpeg` | Homepage feature and Endocrine Care page |
 | `womens-health.jpeg` | Homepage and Patient Care page |
-| `pediatric-care.jpeg` | Emergency-care card on Services |
-| `medical-team.jpeg` | Pediatric professionals card on Services |
-| `pediatric-services.jpeg` | Pediatric services card on Services |
-| `laboratory-services.jpeg` | Laboratory services card on Services |
+| `emergency-care.jpeg` | Emergency Care card on Services |
+| `pediatric-care.jpeg` | Photo of two children dressed as healthcare professionals on Services |
+| `pediatric-clinic.jpeg` | Pediatric clinic poster on Services |
+| `laboratory-services.jpeg` | Laboratory signage and testing equipment on Services |
 
 To update an image, replace the corresponding file in `public/images/` and keep its filename, or change its URL and alt text in `src/data/media.ts`. The clinic content image panels use fixed heights with `object-fit: cover`; portrait/layout differences may crop image edges to fill their boxes. The logo is separately contained in its rectangular theme-aware frame.
 
