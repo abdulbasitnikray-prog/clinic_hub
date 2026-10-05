@@ -68,10 +68,11 @@ export const ServicesPage: React.FC = () => {
             <div className="relative">
               <Search className={`w-5 h-5 text-slate-400 absolute top-3.5 ${isRtl ? 'right-4' : 'left-4'}`} />
               <input
+                aria-label={t('servicesSearchPlaceholder')}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={language === 'fa' ? 'جستجوی خدمات (مثلاً دیابت، تیروئید...)' : 'Search services (e.g. Diabetes, Thyroid...)'}
+                placeholder={t('servicesSearchPlaceholder')}
                 className={`w-full py-3 text-sm text-white bg-[#070F1E] rounded-xl shadow-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-clinic-teal placeholder:text-slate-500 ${
                   isRtl ? 'pr-11 pl-10' : 'pl-11 pr-10'
                 }`}
@@ -80,6 +81,7 @@ export const ServicesPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
+                  aria-label={t('clearSearch')}
                   className={`absolute top-3.5 ${isRtl ? 'left-3' : 'right-3'} text-slate-400 hover:text-white`}
                 >
                   <X className="w-4 h-4" />
@@ -194,12 +196,23 @@ export const ServicesPage: React.FC = () => {
 
       {/* Detail Modal (Dark Theme & High Contrast) */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-fadeIn">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="service-dialog-title"
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') setSelectedService(null);
+          }}
+          tabIndex={-1}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-fadeIn"
+        >
           <div className="bg-[#0F223D] text-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl relative border border-slate-700">
             <button
               type="button"
               onClick={() => setSelectedService(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-white bg-[#070F1E] p-2 rounded-full border border-slate-700"
+              aria-label={t('close')}
+              autoFocus
+              className="absolute top-5 end-5 text-slate-400 hover:text-white bg-[#070F1E] p-2 rounded-full border border-slate-700"
             >
               <X className="w-5 h-5" />
             </button>
@@ -210,6 +223,7 @@ export const ServicesPage: React.FC = () => {
                 <span>{CLINIC_INFO.name[language]}</span>
               </div>
               <h3 className="text-xl font-extrabold text-white">
+                <span id="service-dialog-title" className="sr-only">{t('serviceDetailsLabel')}: </span>
                 {selectedService.name[language]}
               </h3>
             </div>
@@ -256,7 +270,7 @@ export const ServicesPage: React.FC = () => {
                 onClick={() => setSelectedService(null)}
                 className="px-5 py-3 bg-[#070F1E] text-slate-300 font-bold text-xs sm:text-sm rounded-xl border border-slate-700 hover:bg-slate-800 hover:text-white"
               >
-                {language === 'fa' ? 'بستن' : 'Close'}
+                {t('close')}
               </button>
             </div>
           </div>

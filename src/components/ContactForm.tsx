@@ -26,15 +26,13 @@ export const ContactForm: React.FC = () => {
       </p>
 
       {submitted ? (
-        <div className="bg-emerald-950/80 border border-emerald-800 rounded-xl p-6 text-center space-y-3">
-          <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-          <h4 className="font-bold text-emerald-200 text-base">
-            {language === 'fa' ? 'پیام شما دریافت گردید' : 'Inquiry Prepared'}
+        <div role="status" aria-live="polite" className="bg-slate-900 border border-slate-700 rounded-xl p-6 text-center space-y-3">
+          <CheckCircle2 className="w-10 h-10 text-clinic-tealGlow mx-auto" />
+          <h4 className="font-bold text-white text-base">
+            {t('formNotSentTitle')}
           </h4>
-          <p className="text-xs sm:text-sm text-emerald-300 leading-relaxed">
-            {language === 'fa'
-              ? 'تشکر از تماس شما. برای رسیدگی عاجل به وضعیت صحی، لطفاً مستقیماً با شماره 0797955212 تماس بگیرید.'
-              : 'Thank you for reaching out. For urgent healthcare consultation, please call 0797955212 directly.'}
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            {t('formNotSentText')}
           </p>
           <a
             href={`tel:${CLINIC_INFO.phones[0]}`}
@@ -46,12 +44,14 @@ export const ContactForm: React.FC = () => {
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label htmlFor="inquiry-name" className="block text-xs font-bold text-slate-300 mb-1">
               {t('formName')} *
             </label>
             <input
+              id="inquiry-name"
               type="text"
               required
+              autoComplete="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full px-4 py-2.5 text-sm bg-[#070F1E] text-white rounded-xl border border-slate-700 focus:ring-2 focus:ring-clinic-teal focus:border-transparent outline-none transition-all placeholder:text-slate-500"
@@ -60,12 +60,15 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label htmlFor="inquiry-phone" className="block text-xs font-bold text-slate-300 mb-1">
               {t('formPhone')} *
             </label>
             <input
+              id="inquiry-phone"
               type="tel"
               required
+              autoComplete="tel"
+              inputMode="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full px-4 py-2.5 text-sm bg-[#070F1E] text-white rounded-xl border border-slate-700 focus:ring-2 focus:ring-clinic-teal focus:border-transparent outline-none transition-all ltr-text placeholder:text-slate-500"
@@ -74,10 +77,11 @@ export const ContactForm: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">
+            <label htmlFor="inquiry-message" className="block text-xs font-bold text-slate-300 mb-1">
               {t('formMessage')}
             </label>
             <textarea
+              id="inquiry-message"
               rows={4}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}

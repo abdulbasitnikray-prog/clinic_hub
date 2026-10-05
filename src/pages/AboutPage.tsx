@@ -2,8 +2,6 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { TRANSLATIONS } from '../data/translations';
 import { CLINIC_INFO } from '../data/clinic';
-import { MEDIA_ASSETS } from '../data/media';
-import { ImageWithFallback } from '../components/ImageWithFallback';
 import { SeoMeta } from '../components/SeoMeta';
 import { 
   ShieldCheck, 
@@ -16,7 +14,6 @@ import {
   Activity, 
   Repeat, 
   BookOpen,
-  Stethoscope,
   Users
 } from 'lucide-react';
 
@@ -37,12 +34,12 @@ export const AboutPage: React.FC = () => {
     <>
       <SeoMeta
         title={{
-          en: "About Sahar Wand Health Clinic - Medical Team & Values",
-          fa: "درباره کلینیک صحی شهروند - تیم طبی و ارزش‌ها"
+          en: "About Sahar Wand Health Clinic",
+          fa: "درباره کلینیک صحی شهروند"
         }}
         description={{
-          en: "Learn about Sahar Wand Health Clinic in Kabul, Afghanistan. Patient-centered medical team, mission, vision, and core clinical values.",
-          fa: "معرفی کلینیک صحی شهروند در کابل، افغانستان. تیم داکتران و نرس‌های مسلکی، مأموریت، دیدگاه و ارزش‌های بنیادی طبی."
+          en: "Learn about Sahar Wand Health Clinic in Kabul, Afghanistan, its stated purpose, care approach, and published contact information.",
+          fa: "معرفی کلینیک صحی شهروند در کابل، افغانستان، مأموریت، دیدگاه و ارزش‌های بنیادی طبی."
         }}
       />
 
@@ -61,46 +58,25 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Doctor & Nursing Team Feature Block */}
+        {/* Provider information is omitted until verified profiles are supplied. */}
         <section className="bg-[#0F223D] border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-4">
+          <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clinic-teal/15 text-clinic-tealGlow text-xs font-bold uppercase tracking-wider">
                 <Users className="w-4 h-4" />
-                <span>{language === 'fa' ? 'کادر مسلکی طبی' : 'Professional Healthcare Staff'}</span>
+                <span>{t('homeTeamTitle')}</span>
               </div>
 
               <h2 className="text-2xl font-extrabold text-white">
-                {language === 'fa' ? 'تیم داکتران و نرس‌های با تجربه' : 'Experienced Doctors & Nursing Professionals'}
+                {t('homeTeamTitle')}
               </h2>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {language === 'fa'
-                  ? 'کادر طبی کلینیک صحی شهروند متعهد به ارائه ارزیابی‌های دقیق طبی، مشاوره‌های دلسوزانه و مراقبت‌های مداوم نرسنگ برای بیماران در کابل می‌باشد.'
-                  : 'The clinical team at Sahar Wand Health Clinic is dedicated to delivering thorough medical consultations, empathetic nursing care, and continuous patient follow-up in Kabul.'}
+                {t('homeTeamEmpty')}
               </p>
 
-              <div className="pt-2 flex items-center gap-4 text-xs font-semibold text-clinic-tealGlow">
-                <span className="flex items-center gap-1.5">
-                  <Stethoscope className="w-4 h-4" />
-                  {language === 'fa' ? 'طب داخله و اندوکراین' : 'Internal Medicine & Endocrinology'}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4" />
-                  {language === 'fa' ? 'مراقبت‌های تخصصی نرسنگ' : 'Specialized Nursing Care'}
-                </span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80">
-                <ImageWithFallback
-                  src={MEDIA_ASSETS.clinicInterior.src}
-                  alt={MEDIA_ASSETS.clinicInterior.alt[language]}
-                  className="clinic-content-image"
-                />
-              </div>
-            </div>
+              <a href={`tel:${CLINIC_INFO.phones[0]}`} className="inline-flex min-h-11 items-center rounded-xl bg-clinic-teal px-5 font-bold text-white hover:bg-clinic-tealLight ltr-text">
+                {t('callNow')}: {CLINIC_INFO.phones[0]}
+              </a>
           </div>
         </section>
 

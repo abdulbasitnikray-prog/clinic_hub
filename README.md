@@ -33,7 +33,12 @@ There is no separate test script configured in `package.json`; `npm run build` i
 - **Themes:** Light and dark modes are available in the navigation and mobile menu. The selected theme is stored in browser local storage; dark mode is the default.
 - **Routes:** Home, About, Services, Endocrine Care, Patient Care, Contact, FAQ, and Privacy pages are available in both languages. Routes use `HashRouter` for static hosting compatibility.
 - **Clinic information:** Edit names, contact numbers, location, hours, and map destination in `src/data/clinic.ts`.
+- **Clinic facts:** The public address, two clinic phone numbers, and Saturday–Thursday working days are present. Exact daily hours, email, WhatsApp, and map coordinates are not supplied; their configuration fields remain `null` until verified rather than displaying guesses.
 - **Translations and media:** Shared language strings are in `src/data/translations.ts`; image URLs and accessible text are centralized in `src/data/media.ts`.
+- **Optional clinic content:** Add verified provider profiles, facility entries, real clinic photographs, and medically reviewed articles to `src/data/siteContent.ts`. These collections are intentionally empty until approved facts and media are supplied.
+- **Health information:** The homepage service browser describes existing service entries; it does not match symptoms to diagnoses or recommend care.
+- **Contact form:** This static site has no message backend. The form validates entries locally and explicitly states that it sends and stores nothing; use the published clinic phone numbers instead.
+- **SEO:** Route metadata and clinic structured data are updated from the central clinic configuration. `public/robots.txt` allows crawling. A sitemap is omitted because the site uses hash-based routes, which do not provide crawler-friendly distinct page URLs.
 
 ## Images
 
@@ -43,7 +48,7 @@ Original image files are retained in `img/`. The named files used by the app are
 | --- | --- |
 | `logo.png` | Transparent clinic logo used in the navbar, footer, mobile menu, and favicon |
 | `clinic-hero.jpeg` | Homepage hero |
-| `clinic-interior.jpeg` | Homepage nursing/care section and About page |
+| `clinic-interior.jpeg` | Clinic services sign graphic |
 | `endocrine-care.jpeg` | Homepage feature and Endocrine Care page |
 | `womens-health.jpeg` | Homepage and Patient Care page |
 | `emergency-care.jpeg` | Emergency Care card on Services |
@@ -51,7 +56,7 @@ Original image files are retained in `img/`. The named files used by the app are
 | `pediatric-clinic.jpeg` | Pediatric clinic poster on Services |
 | `laboratory-services.jpeg` | Laboratory signage and testing equipment on Services |
 
-To update an image, replace the corresponding file in `public/images/` and keep its filename, or change its URL and alt text in `src/data/media.ts`. The clinic content image panels use fixed heights with `object-fit: cover`; portrait/layout differences may crop image edges to fill their boxes. The logo is separately contained in its rectangular theme-aware frame.
+The supplied image set contains service graphics and illustrations, not verified documentary photos of the clinic, staff, or facilities. They are used as service imagery and are not presented as a verified photo gallery. To update an image, replace the corresponding file in `public/images/` and keep its filename, or change its URL and alt text in `src/data/media.ts`. The clinic content image panels use fixed heights with `object-fit: cover`; portrait/layout differences may crop image edges to fill their boxes. The logo is separately contained in its rectangular theme-aware frame.
 
 ## Production and deployment
 

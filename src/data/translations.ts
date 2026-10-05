@@ -28,8 +28,8 @@ export const TRANSLATIONS = {
   heroTagline: { en: "Professional • Compassionate • Patient-Centered", fa: "مسلکی • دلسوزانه • بیمارمحور" },
   heroHeadline: { en: "Your Health, Our Commitment", fa: "صحت شما، تعهد ما" },
   heroSubtext: {
-    en: "Professional, accessible and compassionate healthcare focused on your individual needs.",
-    fa: "ارائه خدمات صحی مسلکی، قابل دسترس و دلسوزانه با تمرکز بر نیازهای فردی هر بیمار."
+    en: "Find the clinic's location, contact details, and published service information. Call to confirm current availability and exact opening times.",
+    fa: "موقعیت، راه‌های تماس و معلومات خدمات نشرشده کلینیک را ببینید. برای تأیید موجودیت فعلی خدمات و ساعات دقیق کاری تماس بگیرید."
   },
   heroLocationBadge: { en: "Kabul, Afghanistan", fa: "کابل، افغانستان" },
   heroCtaContact: { en: "Contact the Clinic", fa: "تماس با کلینیک" },
@@ -44,6 +44,82 @@ export const TRANSLATIONS = {
   quickDaysText: { en: "Saturday to Thursday", fa: "شنبه تا پنجشنبه" },
   quickCareTitle: { en: "Patient-Centered Care", fa: "مراقبت بیمارمحور" },
   quickCareText: { en: "Professional and compassionate healthcare", fa: "خدمات صحی مسلکی و دلسوزانه" },
+  quickHoursTitle: { en: "Opening Hours", fa: "ساعات کاری" },
+  quickHoursUnavailable: { en: "Exact hours are not published", fa: "ساعات دقیق نشر نشده است" },
+  quickHoursContact: { en: "Call to confirm before visiting", fa: "پیش از مراجعه برای تأیید تماس بگیرید" },
+  homeAboutTitle: { en: "About the Clinic", fa: "درباره کلینیک" },
+  homeInformationTitle: { en: "Plan Your Visit", fa: "برای مراجعه آماده شوید" },
+  homeInformationSubtitle: {
+    en: "Clinic details currently published on this website.",
+    fa: "معلومات فعلی کلینیک که در این وبسایت نشر شده است."
+  },
+  homeTeamTitle: { en: "Doctors and Medical Team", fa: "داکتران و کادر طبی" },
+  homeTeamEmpty: {
+    en: "Individual provider names, qualifications, and schedules have not been provided for publication. Please call the clinic to confirm who is available.",
+    fa: "نام، اسناد تحصیلی و برنامه کاری داکتران برای نشر ارائه نشده است. برای آگاهی از افراد حاضر لطفاً با کلینیک تماس بگیرید."
+  },
+  homeFacilitiesTitle: { en: "Clinic Facilities", fa: "امکانات کلینیک" },
+  homeFacilitiesEmpty: {
+    en: "A verified facilities list and real facility photographs have not been provided yet.",
+    fa: "فهرست تأییدشده امکانات و عکس‌های واقعی کلینیک هنوز ارائه نشده است."
+  },
+  homeHealthTitle: { en: "Health Information", fa: "معلومات صحی" },
+  homeHealthEmpty: {
+    en: "Educational articles will appear here after they have been reviewed and approved by a qualified medical professional.",
+    fa: "مقاله‌های آموزشی پس از بررسی و تأیید یک متخصص واجد شرایط طبی در این بخش نشر می‌شوند."
+  },
+  homeGalleryTitle: { en: "Clinic Gallery", fa: "گالری کلینیک" },
+  homeGalleryEmpty: {
+    en: "Verified photographs of the clinic are not available for publication yet.",
+    fa: "عکس‌های تأییدشده کلینیک برای نشر هنوز در دسترس نیست."
+  },
+  homeContactTitle: { en: "Contact and Location", fa: "تماس و موقعیت" },
+  homeContactSubtitle: {
+    en: "Use the published phone numbers for questions about services, availability, or exact opening times.",
+    fa: "برای پرسش درباره خدمات، موجودیت داکتران یا ساعات دقیق کاری با شماره‌های نشرشده تماس بگیرید."
+  },
+  contactForHours: { en: "Call to confirm exact opening times", fa: "برای آگاهی از ساعات دقیق کاری تماس بگیرید" },
+  browseServices: { en: "Browse medical services", fa: "مشاهده خدمات صحی" },
+  serviceBrowserTitle: { en: "Browse Clinic Services", fa: "جستجوی خدمات کلینیک" },
+  serviceBrowserDescription: {
+    en: "Choose a listed service to read its description. This guide does not assess symptoms or recommend a diagnosis.",
+    fa: "برای خواندن توضیحات یک خدمت نشرشده را انتخاب کنید. این راهنما علایم را ارزیابی یا تشخیص طبی پیشنهاد نمی‌کند."
+  },
+  serviceBrowserDisclaimer: {
+    en: "For personal medical concerns, contact a qualified healthcare professional. In an emergency, seek local emergency care.",
+    fa: "برای نگرانی‌های شخصی صحی با متخصص واجد شرایط تماس بگیرید. در حالت عاجل به خدمات عاجل محل مراجعه کنید."
+  },
+  homeWhyTitle: { en: "Useful Information Before You Visit", fa: "معلومات مفید پیش از مراجعه" },
+  homePublishedServicesTitle: { en: "Services listed", fa: "خدمات نشرشده" },
+  homePublishedServicesText: {
+    en: "Review the clinic's service descriptions and contact the clinic to confirm current availability.",
+    fa: "توضیحات خدمات کلینیک را بخوانید و برای تأیید موجودیت فعلی با کلینیک تماس بگیرید."
+  },
+  homeDirectContactTitle: { en: "Direct contact", fa: "تماس مستقیم" },
+  homeDirectContactText: {
+    en: "Use the published phone numbers to ask about providers, appointments, and opening times.",
+    fa: "برای پرسش درباره داکتران، تعیین وقت و ساعات کاری از شماره‌های نشرشده استفاده کنید."
+  },
+  homeLocationTitle: { en: "Clinic location", fa: "موقعیت کلینیک" },
+  homeLocationText: {
+    en: "The Kabul address and a map directions link are available on this site.",
+    fa: "آدرس کابل و پیوند مسیر نقشه در این وبسایت موجود است."
+  },
+  profileSpecialization: { en: "Specialization", fa: "تخصص" },
+  profileQualifications: { en: "Qualifications", fa: "تحصیلات" },
+  profileExperience: { en: "Experience", fa: "سابقه" },
+  profileLanguages: { en: "Languages", fa: "زبان‌ها" },
+  profileDays: { en: "Available days", fa: "روزهای حضور" },
+  close: { en: "Close", fa: "بستن" },
+  clearSearch: { en: "Clear search", fa: "پاک‌کردن جستجو" },
+  viewGalleryImage: { en: "View gallery image", fa: "مشاهده عکس گالری" },
+  servicesSearchPlaceholder: { en: "Search clinic services", fa: "جستجوی خدمات کلینیک" },
+  serviceDetailsLabel: { en: "Service details", fa: "جزئیات خدمت" },
+  formNotSentTitle: { en: "Nothing was sent or stored", fa: "هیچ پیامی ارسال یا ذخیره نشد" },
+  formNotSentText: {
+    en: "This website has no message-delivery service. Your entries were checked only in this browser; please call the clinic directly.",
+    fa: "این وبسایت سیستم ارسال پیام ندارد. معلومات شما فقط در همین مرورگر بررسی شد؛ لطفاً مستقیماً با کلینیک تماس بگیرید."
+  },
 
   // Services Section Header
   servicesSectionTitle: { en: "Our Medical Services", fa: "خدمات صحی ما" },
@@ -139,8 +215,8 @@ export const TRANSLATIONS = {
     {
       title: { en: "Privacy", fa: "حفظ محرمیت" },
       desc: {
-        en: "Strict confidentiality and deep respect for every patient's medical privacy.",
-        fa: "رازداری کامل و احترام عمیق به محرمیت طبی هر بیمار."
+        en: "The clinic states that it respects patient confidentiality. Ask the clinic how records are handled.",
+        fa: "کلینیک بیان می‌کند که به محرمیت بیمار احترام می‌گذارد. درباره نحوه نگهداری اسناد از کلینیک پرسش کنید."
       }
     },
     {
@@ -153,15 +229,15 @@ export const TRANSLATIONS = {
     {
       title: { en: "Follow-Up", fa: "پیگیری مناسب" },
       desc: {
-        en: "Structured follow-up protocols to ensure long-term health continuity.",
-        fa: "پروتوکول‌های پیگیری منظم جهت اطمینان از تداوم سلامت درازمدت."
+        en: "Contact the clinic to ask whether follow-up is appropriate for your care.",
+        fa: "برای آگاهی از نیاز به پیگیری در مراقبت خود با کلینیک تماس بگیرید."
       }
     },
     {
       title: { en: "Patient Safety", fa: "مصئونیت بیمار" },
       desc: {
-        en: "Highest emphasis on clinical cleanliness, safe medical practices, and patient protection.",
-        fa: "تأکید جدی بر نظافت بالینی، رویه‌های مصئون طبی و حفاظت از بیماران."
+        en: "Ask the clinic directly about specific safety and infection-control practices.",
+        fa: "درباره رویه‌های مشخص مصئونیت و جلوگیری از عفونت مستقیماً از کلینیک پرسش کنید."
       }
     }
   ],
@@ -185,8 +261,8 @@ export const TRANSLATIONS = {
   contactDaysValue: { en: "Saturday to Thursday", fa: "شنبه تا پنجشنبه" },
   contactFormTitle: { en: "Send a General Inquiry", fa: "ارسال پیام و استفسار" },
   contactFormNotice: {
-    en: "This form is for general non-emergency inquiries. For clinical evaluation, please contact us by phone.",
-    fa: "این فورمه برای سوالات عمومی غیرعاجل است. برای ارزیابی طبی، لطفاً از طریق تیلفون تماس بگیرید."
+    en: "This website has no contact-form backend. Entries are not sent or stored; use the clinic phone numbers instead. Do not enter medical or other sensitive information.",
+    fa: "این وبسایت سیستم ارسال فورمه تماس ندارد. معلومات ارسال یا ذخیره نمی‌شود؛ از شماره‌های کلینیک استفاده کنید. معلومات طبی یا حساس را وارد نکنید."
   },
   formName: { en: "Your Full Name", fa: "نام کامل شما" },
   formPhone: { en: "Phone Number", fa: "شماره تماس" },
@@ -206,8 +282,8 @@ export const TRANSLATIONS = {
         fa: "کلینیک صحی شهروند چه خدماتی ارائه میکند؟"
       },
       a: {
-        en: "Sahar Wand Health Clinic provides primary general internal medicine, specialized endocrine and hormonal care, diabetes management, thyroid care, pediatric internal care, gynecology consultations, orthopedics assessments, dermatology care, nutrition planning, and growth/stature evaluations.",
-        fa: "کلینیک صحی شهروند خدمات طب داخله عمومی، مراقبت‌های تخصصی اندوکراین و هورمونی، مدیریت دیابت، تیروئید، داخله اطفال، مشاوره‌های نسایی ولادی، ارتوپیدی، جلدی و زیبایی، مدیریت وزن و ارزیابی رشد را ارائه می‌کند."
+        en: "See the Medical Services page for the service areas currently listed by the clinic. Contact the clinic directly to confirm current availability.",
+        fa: "برای مشاهده بخش‌های خدماتی نشرشده به صفحه خدمات صحی مراجعه کنید. برای تأیید موجودیت فعلی خدمات مستقیماً با کلینیک تماس بگیرید."
       }
     },
     {
@@ -236,8 +312,8 @@ export const TRANSLATIONS = {
         fa: "روزهای کاری کلینیک کدام است؟"
       },
       a: {
-        en: "The clinic is open Saturday to Thursday.",
-        fa: "روزهای کاری کلینیک از شنبه تا پنجشنبه می‌باشد."
+        en: "The currently listed working days are Saturday to Thursday. Exact daily opening and closing times are not published; call the clinic to confirm before visiting.",
+        fa: "روزهای کاری نشرشده شنبه تا پنجشنبه است. ساعات دقیق باز و بسته‌شدن نشر نشده؛ پیش از مراجعه برای تأیید با کلینیک تماس بگیرید."
       }
     },
     {
@@ -259,6 +335,26 @@ export const TRANSLATIONS = {
         en: "Yes, diabetes blood sugar management and thyroid/goiter clinical evaluations are core parts of our services.",
         fa: "بله، مدیریت قند خون دیابت و ارزیابی‌های بالینی تیروئید و گواتر از بخش‌های اصلی خدمات کلینیک می‌باشد."
       }
+    },
+    {
+      q: {
+        en: "Which doctors are available, and do I need an appointment?",
+        fa: "کدام داکتران حاضر هستند و آیا تعیین وقت لازم است؟"
+      },
+      a: {
+        en: "Provider schedules and appointment requirements are not published here. Please call the clinic to confirm current availability and whether an appointment is needed.",
+        fa: "برنامه کاری ارائه‌دهندگان خدمات و شرایط تعیین وقت در اینجا نشر نشده است. برای تأیید موجودیت فعلی و نیاز به تعیین وقت با کلینیک تماس بگیرید."
+      }
+    },
+    {
+      q: {
+        en: "Are laboratory services available?",
+        fa: "آیا خدمات لابراتواری موجود است؟"
+      },
+      a: {
+        en: "Please call the clinic to confirm which laboratory tests and services are currently available.",
+        fa: "برای آگاهی از آزمایش‌ها و خدمات لابراتواری که در حال حاضر موجود است، لطفاً با کلینیک تماس بگیرید."
+      }
     }
   ],
 
@@ -278,8 +374,8 @@ export const TRANSLATIONS = {
 
   // Footer
   footerCopyright: {
-    en: "© Sahar Wand Health Clinic. All rights reserved.",
-    fa: "© کلینیک صحی شهروند. تمامی حقوق محفوظ است."
+    en: "© {year} Sahar Wand Health Clinic. All rights reserved.",
+    fa: "© {year} کلینیک صحی شهروند. تمامی حقوق محفوظ است."
   },
 
   // 404 Not Found Page

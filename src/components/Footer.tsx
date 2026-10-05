@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MedicalDisclaimer } from './MedicalDisclaimer';
-import { CLINIC_INFO } from '../data/clinic';
+import { CLINIC_INFO, WEEKDAYS } from '../data/clinic';
 import { MEDIA_ASSETS } from '../data/media';
-import { MapPin, PhoneCall, Calendar, Navigation } from 'lucide-react';
+import { MapPin, PhoneCall, Calendar, Navigation, Clock } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
   const prefix = `/${language}`;
+  const copyright = t('footerCopyright').replace('{year}', String(new Date().getFullYear()));
+  const openingHours = WEEKDAYS.flatMap(({ key, en, fa }) => {
+    const hours = CLINIC_INFO.openingHours[key];
+    return hours ? [`${language === 'fa' ? fa : en}: ${hours}`] : [];
+  });
 
   const navLinks = [
     { path: prefix, label: t('navHome') },
@@ -90,6 +95,10 @@ export const Footer: React.FC = () => {
                 <Calendar className="w-4 h-4 text-clinic-tealGlow flex-shrink-0" />
                 <span>{CLINIC_INFO.workingDays[language]}</span>
               </li>
+              <li className="flex items-start gap-2.5">
+                <Clock className="w-4 h-4 text-clinic-tealGlow flex-shrink-0 mt-0.5" />
+                <span>{openingHours.length ? openingHours.join(' · ') : t('contactForHours')}</span>
+              </li>
               <li className="pt-1 space-y-1.5">
                 {CLINIC_INFO.phones.map((phone) => (
                   <a
@@ -133,7 +142,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright */}
         <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 pt-4">
-          <p>{t('footerCopyright')}</p>
+          <p>{copyright}</p>
           <p className="mt-2 sm:mt-0 text-[11px]">
             {language === 'fa' ? 'کابل، افغانستان' : 'Kabul, Afghanistan'}
           </p>

@@ -32,7 +32,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden flex flex-col bg-[#070F1E]/98 backdrop-blur-xl animate-fadeIn text-slate-100">
+    <div className="fixed inset-0 z-50 xl:hidden flex flex-col bg-[#070F1E]/98 backdrop-blur-xl animate-fadeIn text-slate-100">
       {/* Top Header inside Menu */}
       <div className="flex items-center justify-between p-4 border-b border-slate-800">
         <div className="flex items-center gap-2">

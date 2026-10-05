@@ -1,5 +1,5 @@
 import { useLanguage } from '../context/LanguageContext';
-import { CLINIC_INFO } from '../data/clinic';
+import { CLINIC_INFO, WEEKDAYS } from '../data/clinic';
 import { MEDICAL_SERVICES } from '../data/services';
 import { MEDIA_ASSETS } from '../data/media';
 import { TRANSLATIONS } from '../data/translations';
@@ -7,53 +7,55 @@ import { ServiceCard } from '../components/ServiceCard';
 import { ImageWithFallback } from '../components/ImageWithFallback';
 import { SeoMeta } from '../components/SeoMeta';
 import { SymptomHelper } from '../components/SymptomHelper';
+import { HomeInformationSections } from '../components/HomeInformationSections';
 import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
   Calendar, 
-  Heart, 
-  ShieldCheck, 
+  Clock,
   ArrowRight, 
   ArrowLeft,
   Activity,
-  CheckCircle2,
-  UserCheck,
-  Stethoscope
+  CheckCircle2
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
   const { t, language, isRtl } = useLanguage();
   const prefix = `/${language}`;
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
+  const publishedHours = WEEKDAYS.flatMap(({ key, en, fa }) => {
+    const hours = CLINIC_INFO.openingHours[key];
+    return hours ? [`${language === 'fa' ? fa : en}: ${hours}`] : [];
+  });
 
   const quickCards = [
     {
       icon: MapPin,
       title: t('quickLocationTitle'),
-      text: t('quickLocationText'),
+      text: CLINIC_INFO.address[language],
       subtext: CLINIC_INFO.location[language],
       color: 'bg-teal-500/10 text-teal-400 border-teal-500/30'
     },
     {
       icon: Phone,
       title: t('quickPhoneTitle'),
-      text: `${CLINIC_INFO.phones[0]} • ${CLINIC_INFO.phones[1]}`,
+      text: CLINIC_INFO.phones.join(' • '),
       subtext: language === 'fa' ? 'تماس مستقیم' : 'Direct Call',
       color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
     },
     {
       icon: Calendar,
       title: t('quickDaysTitle'),
-      text: t('quickDaysText'),
-      subtext: language === 'fa' ? 'ساعات کاری بالینی' : 'Clinical Operating Days',
+      text: CLINIC_INFO.workingDays[language],
+      subtext: t('quickDaysTitle'),
       color: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30'
     },
     {
-      icon: Heart,
-      title: t('quickCareTitle'),
-      text: t('quickCareText'),
-      subtext: language === 'fa' ? 'رویکرد بیمارمحور' : 'Patient-Centered Approach',
+      icon: Clock,
+      title: t('quickHoursTitle'),
+      text: publishedHours.length ? publishedHours.join(' · ') : t('quickHoursUnavailable'),
+      subtext: t('quickHoursContact'),
       color: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30'
     }
   ];
@@ -62,12 +64,12 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 sm:space-y-24 pb-12 text-slate-100">
       <SeoMeta
         title={{
-          en: "Home - Professional Healthcare in Kabul",
-          fa: "صفحه اصلی - خدمات صحی مسلکی در کابل"
+          en: "Clinic Information in Kabul",
+          fa: "معلومات کلینیک در کابل"
         }}
         description={{
-          en: "Sahar Wand Health Clinic in Kabul, Afghanistan. Professional, accessible and compassionate healthcare focused on your individual needs. Call 0797955212.",
-          fa: "کلینیک صحی شهروند در کابل، افغانستان. ارائه خدمات صحی مسلکی، قابل دسترس و دلسوزانه با تمرکز بر نیازهای فردی هر بیمار. شماره تماس: 0797955212."
+          en: "Clinic location, published medical-service information, and contact details for Sahar Wand Health Clinic in Kabul, Afghanistan.",
+          fa: "موقعیت کلینیک، معلومات خدمات صحی نشرشده و راه‌های تماس کلینیک صحی شهروند در کابل، افغانستان."
         }}
       />
       
@@ -86,12 +88,12 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <h2 className="text-xs sm:text-sm font-extrabold text-clinic-tealGlow uppercase tracking-widest">
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-clinic-tealGlow uppercase tracking-tight">
                   {t('heroClinicName')}
-                </h2>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                  {t('heroHeadline')}
                 </h1>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                  {t('heroHeadline')}
+                </h2>
               </div>
 
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -108,6 +110,14 @@ export const HomePage: React.FC = () => {
                   <ArrowIcon className="w-4 h-4" />
                 </Link>
 
+                <Link
+                  to={`${prefix}/services`}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm py-3.5 px-7 rounded-xl border border-slate-700 transition-all duration-200"
+                >
+                  <span>{t('heroCtaServices')}</span>
+                  <ArrowIcon className="w-4 h-4" />
+                </Link>
+
                 <a
                   href={`tel:${CLINIC_INFO.phones[0]}`}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm py-3.5 px-7 rounded-xl border border-slate-700 transition-all duration-200"
@@ -115,17 +125,6 @@ export const HomePage: React.FC = () => {
                   <Phone className="w-4 h-4 fill-current animate-pulse text-clinic-tealGlow" />
                   <span>{t('heroCallButton')}</span>
                 </a>
-              </div>
-
-              <div className="pt-4 flex items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-medium">
-                <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-clinic-tealGlow" />
-                  {language === 'fa' ? 'محیط مصئون و دلسوزانه' : 'Safe & Respectful Environment'}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-clinic-tealGlow" />
-                  {language === 'fa' ? 'تسهیلات خیرخانه کابل' : 'Khair Khana Facility'}
-                </span>
               </div>
 
             </div>
@@ -147,6 +146,10 @@ export const HomePage: React.FC = () => {
 
       {/* QUICK INFO CARDS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-6 space-y-2">
+          <h2 className="text-2xl font-extrabold text-white">{t('homeInformationTitle')}</h2>
+          <p className="text-sm text-slate-400">{t('homeInformationSubtitle')}</p>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {quickCards.map((card, idx) => {
             const Icon = card.icon;
@@ -172,57 +175,6 @@ export const HomePage: React.FC = () => {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* DOCTOR AND NURSE MEDICAL TEAM SHOWCASE SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#0F223D] border border-slate-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-700/80">
-                <ImageWithFallback
-                  src={MEDIA_ASSETS.nursingPatientCare.src}
-                  alt={MEDIA_ASSETS.nursingPatientCare.alt[language]}
-                  className="clinic-content-image"
-                />
-              </div>
-            </div>
-
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-clinic-teal/15 text-clinic-tealGlow text-xs font-bold uppercase tracking-wider">
-                <Stethoscope className="w-4 h-4" />
-                <span>{language === 'fa' ? 'تیم داکتران و نرسینگ' : 'Medical & Nursing Care Team'}</span>
-              </div>
-              
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-                {language === 'fa' ? 'مراقبت دلسوزانه و مسلکی طبی' : 'Compassionate Clinical Consultation & Nursing'}
-              </h2>
-
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {language === 'fa'
-                  ? 'کلینیک صحی شهروند با بهره‌گیری از کادر مسلکی طبی، داکتران با تجربه و نرس‌های دلسوز، خدمات معاینه، تشخیص و پیگیری درمان را در محیطی محترمانه و مصئون ارائه می‌نماید.'
-                  : 'Sahar Wand Health Clinic brings together experienced doctors and compassionate nursing staff dedicated to patient-centered clinical evaluations, accurate diagnosis, and ongoing follow-up care in Kabul.'}
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-800 p-3 rounded-xl">
-                  <UserCheck className="w-5 h-5 text-clinic-tealGlow flex-shrink-0" />
-                  <span className="text-xs font-semibold text-slate-200">
-                    {language === 'fa' ? 'ارزیابی‌های دقیق بالینی' : 'Accurate Clinical Assessments'}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 bg-slate-900/80 border border-slate-800 p-3 rounded-xl">
-                  <ShieldCheck className="w-5 h-5 text-clinic-tealGlow flex-shrink-0" />
-                  <span className="text-xs font-semibold text-slate-200">
-                    {language === 'fa' ? 'حفظ کامل رازداری بیمار' : 'Complete Patient Confidentiality'}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-          </div>
         </div>
       </section>
 
@@ -356,6 +308,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <HomeInformationSections />
 
       {/* FAQ PREVIEW SECTION */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">

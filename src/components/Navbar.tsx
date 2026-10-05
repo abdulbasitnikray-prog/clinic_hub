@@ -44,6 +44,7 @@ export const Navbar: React.FC = () => {
     { path: `${prefix}/endocrine-care`, label: t('navEndocrine') },
     { path: `${prefix}/patient-care`, label: t('navPatientCare') },
     { path: `${prefix}/contact`, label: t('navContact') },
+    { path: `${prefix}/faq`, label: t('navFaq') },
   ];
 
   return (
@@ -54,16 +55,16 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Clinic Logo & Title */}
-            <Link to={prefix} className="flex items-center gap-3 group">
-              <span className="clinic-logo-frame w-[76px] h-12 p-1.5 rounded-md border border-slate-700/70 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <Link to={prefix} className="flex items-center gap-2 sm:gap-3 group">
+              <span className="clinic-logo-frame w-12 h-9 p-1 rounded-md border border-slate-700/70 flex items-center justify-center group-hover:scale-105 transition-transform sm:w-[76px] sm:h-12 sm:p-1.5">
                 <img
                   src={MEDIA_ASSETS.logo.src}
                   alt={MEDIA_ASSETS.logo.alt[language]}
                   className="w-full h-full object-contain"
                 />
               </span>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-base sm:text-lg text-white tracking-tight leading-tight group-hover:text-clinic-tealGlow transition-colors">
+              <div className="flex min-w-0 flex-col">
+                <span title={CLINIC_INFO.name[language]} className="max-w-[8.5rem] truncate font-extrabold text-xs sm:max-w-none sm:text-lg text-white tracking-tight leading-tight group-hover:text-clinic-tealGlow transition-colors">
                   {CLINIC_INFO.name[language]}
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium hidden sm:block">
@@ -73,7 +74,7 @@ export const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Main Navigation">
+            <nav className="hidden xl:flex items-center gap-1 xl:gap-2" aria-label={language === 'fa' ? 'منوی اصلی' : 'Main navigation'}>
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
@@ -93,7 +94,7 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Language Switcher & Call CTA */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               {themeToggle}
               <LanguageSwitcher />
 
@@ -108,9 +109,11 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Mobile Actions: Language Switcher + Hamburger */}
-            <div className="flex md:hidden items-center gap-2">
+            <div className="flex xl:hidden items-center gap-1 sm:gap-2">
               {themeToggle}
-              <LanguageSwitcher />
+              <div className="hidden sm:block">
+                <LanguageSwitcher />
+              </div>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}

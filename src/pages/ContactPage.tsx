@@ -1,12 +1,16 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { CLINIC_INFO } from '../data/clinic';
+import { CLINIC_INFO, WEEKDAYS } from '../data/clinic';
 import { ContactForm } from '../components/ContactForm';
 import { SeoMeta } from '../components/SeoMeta';
 import { MapPin, PhoneCall, Calendar, Navigation, Printer, HeartPulse } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const { t, language } = useLanguage();
+  const openingHours = WEEKDAYS.flatMap(({ key, en, fa }) => {
+    const hours = CLINIC_INFO.openingHours[key];
+    return hours ? [{ day: language === 'fa' ? fa : en, hours }] : [];
+  });
 
   const handlePrint = () => {
     window.print();
@@ -117,6 +121,18 @@ export const ContactPage: React.FC = () => {
               <p className="text-sm font-extrabold text-clinic-tealGlow">
                 {CLINIC_INFO.workingDays[language]}
               </p>
+              {openingHours.length > 0 ? (
+                <dl className="space-y-2 text-sm text-slate-300">
+                  {openingHours.map(({ day, hours }) => (
+                    <div key={day} className="flex justify-between gap-4">
+                      <dt>{day}</dt>
+                      <dd dir="ltr">{hours}</dd>
+                    </div>
+                  ))}
+                </dl>
+              ) : (
+                <p className="text-xs text-slate-400">{t('contactForHours')}</p>
+              )}
             </div>
 
             {/* Printable Physical Card View (Shown when printing) */}

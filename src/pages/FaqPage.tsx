@@ -45,9 +45,10 @@ export const FaqPage: React.FC = () => {
         <div className="space-y-4">
           {TRANSLATIONS.faqItems.map((item, idx) => {
             const isOpen = openIdx === idx;
+            const answerId = `faq-answer-${idx}`;
             return (
               <div
-                key={idx}
+                key={item.q.en}
                 className="bg-[#0F223D] rounded-2xl border border-slate-800 overflow-hidden shadow-lg transition-all"
               >
                 <button
@@ -55,6 +56,7 @@ export const FaqPage: React.FC = () => {
                   onClick={() => toggleAccordion(idx)}
                   className="w-full p-6 text-start flex items-center justify-between gap-4 font-extrabold text-white text-sm sm:text-base hover:bg-[#132A4A] transition-colors"
                   aria-expanded={isOpen}
+                  aria-controls={answerId}
                 >
                   <span className="flex items-center gap-3">
                     <span className="w-7 h-7 rounded-lg bg-clinic-teal/20 text-clinic-tealGlow flex items-center justify-center text-xs font-bold flex-shrink-0">
@@ -69,11 +71,13 @@ export const FaqPage: React.FC = () => {
                   )}
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 pt-3 text-xs sm:text-sm text-slate-200 leading-relaxed border-t border-slate-800 bg-[#070F1E]">
-                    <p>{item.a[language]}</p>
-                  </div>
-                )}
+                <div
+                  id={answerId}
+                  hidden={!isOpen}
+                  className="px-6 pb-6 pt-3 text-xs sm:text-sm text-slate-200 leading-relaxed border-t border-slate-800 bg-[#070F1E]"
+                >
+                  <p>{item.a[language]}</p>
+                </div>
               </div>
             );
           })}
