@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
       <header className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled ? 'glass-nav shadow-lg py-2.5' : 'bg-[#070F1E]/95 border-b border-slate-800/80 py-3.5'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Clinic Logo & Title */}
             <Link to={prefix} className="flex items-center gap-2 sm:gap-3 group">
@@ -74,14 +74,14 @@ export const Navbar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-1 xl:gap-2" aria-label={language === 'fa' ? 'منوی اصلی' : 'Main navigation'}>
+            <nav className="hidden 2xl:flex items-center gap-1 xl:gap-2" aria-label={language === 'fa' ? 'منوی اصلی' : 'Main navigation'}>
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
                   to={link.path}
                   end={link.exact}
                   className={({ isActive }) =>
-                    `px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold transition-all duration-200 ${
+                    `whitespace-nowrap px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold transition-all duration-200 ${
                       isActive
                         ? 'text-clinic-tealGlow bg-clinic-teal/15 font-bold border-b-2 border-clinic-teal'
                         : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Language Switcher & Call CTA */}
-            <div className="hidden xl:flex items-center gap-3">
+            <div className="hidden 2xl:flex items-center gap-3">
               {themeToggle}
               <LanguageSwitcher />
 
@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Mobile Actions: Language Switcher + Hamburger */}
-            <div className="flex xl:hidden items-center gap-1 sm:gap-2">
+            <div className="flex 2xl:hidden items-center gap-1 sm:gap-2">
               {themeToggle}
               <div className="hidden sm:block">
                 <LanguageSwitcher />

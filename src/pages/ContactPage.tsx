@@ -3,7 +3,9 @@ import { useLanguage } from '../context/LanguageContext';
 import { CLINIC_INFO, WEEKDAYS } from '../data/clinic';
 import { ContactForm } from '../components/ContactForm';
 import { SeoMeta } from '../components/SeoMeta';
-import { MapPin, PhoneCall, Calendar, Navigation, Printer, HeartPulse } from 'lucide-react';
+import { MapPin, PhoneCall, Calendar, Navigation, Printer } from 'lucide-react';
+import { MEDIA_ASSETS } from '../data/media';
+import { createPortal } from 'react-dom';
 
 export const ContactPage: React.FC = () => {
   const { t, language } = useLanguage();
@@ -13,11 +15,46 @@ export const ContactPage: React.FC = () => {
   });
 
   const handlePrint = () => {
+    const clearPrintMode = () => document.documentElement.classList.remove('clinic-info-print');
+    window.addEventListener('afterprint', clearPrintMode, { once: true });
+    document.documentElement.classList.add('clinic-info-print');
     window.print();
   };
 
+  const printSheet = (
+    <section className="clinic-print-sheet" dir={language === 'fa' ? 'rtl' : 'ltr'} aria-label={CLINIC_INFO.name[language]}>
+      <header className="clinic-print-header">
+        <img src={MEDIA_ASSETS.logo.src} alt="" />
+        <div>
+          <h2>{CLINIC_INFO.name[language]}</h2>
+          <p>{CLINIC_INFO.tagline[language]}</p>
+        </div>
+      </header>
+      <section className="clinic-print-field">
+        <h3>{t('contactAddressLabel')}</h3>
+        <p>{CLINIC_INFO.address[language]}</p>
+      </section>
+      <section className="clinic-print-field">
+        <h3>{t('contactPhonesLabel')}</h3>
+        <p dir="ltr">{CLINIC_INFO.phones.join(' / ')}</p>
+      </section>
+      <section className="clinic-print-field">
+        <h3>{t('contactDaysLabel')}</h3>
+        <p>{CLINIC_INFO.workingDays[language]}</p>
+      </section>
+      <section className="clinic-print-field">
+        <h3>{t('quickHoursTitle')}</h3>
+        <p>{openingHours.length > 0
+          ? openingHours.map(({ day, hours }) => `${day}: ${hours}`).join(' · ')
+          : t('contactForHours')}
+        </p>
+      </section>
+    </section>
+  );
+
   return (
     <>
+      {createPortal(printSheet, document.getElementById('clinic-print-root')!)}
       <SeoMeta
         title={{
           en: "Contact & Location - Kabul Khair Khana",
@@ -29,8 +66,8 @@ export const ContactPage: React.FC = () => {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 text-slate-100">
-        
+      <div className="contact-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12 text-slate-100">
+
         {/* Header Banner */}
         <div className="bg-gradient-to-r from-[#091A30] via-[#0D2647] to-[#091A30] text-white rounded-3xl p-8 sm:p-12 shadow-xl space-y-3 border border-slate-800">
           <span className="text-xs font-bold text-clinic-tealGlow uppercase tracking-wider bg-clinic-teal/20 px-3.5 py-1 rounded-full border border-clinic-teal/40">
@@ -133,18 +170,6 @@ export const ContactPage: React.FC = () => {
               ) : (
                 <p className="text-xs text-slate-400">{t('contactForHours')}</p>
               )}
-            </div>
-
-            {/* Printable Physical Card View (Shown when printing) */}
-            <div className="hidden print:block border-2 border-slate-800 p-6 rounded-2xl space-y-3 bg-white text-slate-900">
-              <div className="flex items-center gap-2">
-                <HeartPulse className="w-6 h-6 text-clinic-navy" />
-                <h3 className="font-bold text-lg">{CLINIC_INFO.name[language]}</h3>
-              </div>
-              <p className="text-xs">{CLINIC_INFO.tagline[language]}</p>
-              <p className="text-xs font-bold">{CLINIC_INFO.address[language]}</p>
-              <p className="text-xs">Phones: {CLINIC_INFO.phones.join(' / ')}</p>
-              <p className="text-xs">Working Days: {CLINIC_INFO.workingDays[language]}</p>
             </div>
 
           </div>

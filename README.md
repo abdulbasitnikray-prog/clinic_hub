@@ -38,6 +38,7 @@ There is no separate test script configured in `package.json`; `npm run build` i
 - **Optional clinic content:** Add verified provider profiles, facility entries, real clinic photographs, and medically reviewed articles to `src/data/siteContent.ts`. These collections are intentionally empty until approved facts and media are supplied.
 - **Health information:** The homepage service browser describes existing service entries; it does not match symptoms to diagnoses or recommend care.
 - **Contact form:** This static site has no message backend. The form validates entries locally and explicitly states that it sends and stores nothing; use the published clinic phone numbers instead.
+- **Printable clinic information:** The Contact page's print action produces a single-page sheet with the clinic name, address, phone numbers, working days, and verified opening-hours information.
 - **SEO:** Route metadata and clinic structured data are updated from the central clinic configuration. `public/robots.txt` allows crawling. A sitemap is omitted because the site uses hash-based routes, which do not provide crawler-friendly distinct page URLs.
 
 ## Images
