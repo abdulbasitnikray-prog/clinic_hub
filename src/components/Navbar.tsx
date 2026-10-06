@@ -73,7 +73,7 @@ export const Navbar: React.FC = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
+            {/* Single-row navigation on very wide screens */}
             <nav className="hidden 2xl:flex items-center gap-1 xl:gap-2" aria-label={language === 'fa' ? 'منوی اصلی' : 'Main navigation'}>
               {navLinks.map((link) => (
                 <NavLink
@@ -94,6 +94,21 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* Language Switcher & Call CTA */}
+            <div className="hidden lg:flex 2xl:hidden items-center gap-3">
+              {themeToggle}
+              <LanguageSwitcher />
+
+              <a
+                href={`tel:${CLINIC_INFO.phones[0]}`}
+                className="flex items-center gap-2 bg-gradient-to-r from-clinic-teal to-emerald-600 hover:from-emerald-600 hover:to-clinic-teal text-white text-xs font-bold py-2.5 px-3 rounded-xl shadow-lg shadow-clinic-teal/25 transition-all"
+                aria-label={`${t('callNow')}: ${CLINIC_INFO.phones[0]}`}
+              >
+                <PhoneCall className="w-4 h-4 text-white animate-pulse" />
+                <span>{t('callNow')}</span>
+              </a>
+            </div>
+
+            {/* Language Switcher & Call CTA on very wide screens */}
             <div className="hidden 2xl:flex items-center gap-3">
               {themeToggle}
               <LanguageSwitcher />
@@ -109,7 +124,7 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Mobile Actions: Language Switcher + Hamburger */}
-            <div className="flex 2xl:hidden items-center gap-1 sm:gap-2">
+            <div className="flex lg:hidden items-center gap-1 sm:gap-2">
               {themeToggle}
               <div className="hidden sm:block">
                 <LanguageSwitcher />
@@ -124,6 +139,29 @@ export const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
+
+            {/* Dedicated navigation row keeps every link visible without crowding the header. */}
+            <nav
+              className="hidden lg:flex 2xl:hidden items-center justify-center gap-2 pt-3"
+              aria-label={language === 'fa' ? 'منوی اصلی' : 'Main navigation'}
+            >
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  end={link.exact}
+                  className={({ isActive }) =>
+                    `whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-200 ${
+                      isActive
+                        ? 'text-clinic-tealGlow bg-clinic-teal/15 font-bold border-b-2 border-clinic-teal'
+                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
         </div>
       </header>
 
